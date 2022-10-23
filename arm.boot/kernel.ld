@@ -7,16 +7,19 @@ ENTRY(_vector)
  */
 SECTIONS
 {
+/* The dot means current address counter. */
   . = 0x00; 
-  .vector : { KEEP(vector.o(.text)) }
+/* KEEP keyword is used to  ensure that symbols are not discarded if the 
+       linker is instructed to remove unused symbols. */
+  .vector : { KEEP(vector.o(.text)) } /* Place .vector at start of ROM */
   . = 0x1000;
-  .reset : { KEEP(reset.o(.text)) }
-  .text : { *(.text) }
+  .reset : { KEEP(reset.o(.text)) } /* Place all symbols in ".reset" section */
+  .text : { *(.text) } /* Place all symbols in ".text" section */
 
  /*
   * Include the initialized data sections
   */
- .data : { *(.data) }
+ .data : { *(.data) } /* Place all symbols in ".data" section */
  
   /*
   * Include the data sections that must be zeroed upon starting up.
@@ -26,7 +29,7 @@ SECTIONS
   * ARM processor do not allow unaligned accesses in memory.
   */ 
  .bss : {
-   . = ALIGN(16); 
+   . = ALIGN(16); /* Ensure word alignment of sections */
    _bss_start = .;
    bss = .;
    *(.bss COMMON)
