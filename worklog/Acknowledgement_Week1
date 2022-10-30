@@ -10,3 +10,9 @@ Week 1-Part 2: Completed work:
 2. Understand the relationship between the linker script and memory map through kernel.ld file: a script contains commands that are used to configure how input files are to be compiled into an executable file, it can define an entry point, specify the sections (.text, .data, .rodata, COMMON, .bss,...), help control the memory layout. If we do not provide a linker script (.ld file), the toolchain provides one by default. Normally, this script is not suitable to use in bare metal devices.
 Typically, .text, .rodata, .data(storage) are storaged in ROM, but .bss, COMMON, .data(usage) are storaged in RAM.   
 3. Understand why _stack_top defined at the end of everything: The stack area is LIFO structure, typically located in the highest part of RAM.
+4. Emulate a second serial line via telnet connection
+
+Week 1-Part 3: Completed work:
+
+
+Week 1-Part 2: Completed work:

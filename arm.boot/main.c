@@ -24,8 +24,8 @@ void _start() {
 //        count = 0;
 //      }
     }
-    if (c == '\r')
-      uart_send(UART0, '\n');
-    uart_send(UART0, c);
+
+    // print typed character on the keyboard via second serial line (telnet connection) 
+    uart_send(UART1, c);
   }
 }
