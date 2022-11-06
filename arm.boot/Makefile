@@ -34,7 +34,7 @@ QEMU_LOADER=-device loader,file=kernel.elf
 #   attach via a shell, on a the matching port:
 #     $ telnet locahost 4321
 #-------------------------------------------------------------------
-QEMU_SERIAL=-serial mon:stdio -serial telnet:localhost:1235,server
+QEMU_SERIAL=-serial mon:stdio
 
 #-------------------------------------------------------------------
 # Prefix for the toolchain, like:

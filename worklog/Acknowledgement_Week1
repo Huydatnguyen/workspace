@@ -13,6 +13,10 @@ Typically, .text, .rodata, .data(storage) are storaged in ROM, but .bss, COMMON,
 4. Emulate a second serial line via telnet connection
 
 Week 1-Part 3: Completed work:
+1. Concept of Hypevisor: software monitoring Virtual machines, allows VMs or guest to access the below resources: CPU, RAM, Storage...
+   2 types of hypevisor: 
+	Bare metal: run directly on hardware, loacted between hardware and one more OS. (Example: Xen,VMware)
+	Type 2: installed inside a server, which has an installed OS. It runs like a computer software. (Example: VirtualBox, QEMU) 
+2. Container with hypevisor: Containers share the machine's OS kernel, therefore do not require an OS per application, higher efficiencies and reducing costs. 
 
 
-Week 1-Part 2: Completed work:

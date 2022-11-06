@@ -10,22 +10,27 @@ void _start() {
   int count = 0;
   uart_send_string(UART0, "\nQuit with \"C-a c\" and then type in \"quit\".\n");
   uart_send_string(UART0, "\nHello world!\n");
-
-  while (1) {
-    unsigned char c;
-    while (0 == uart_receive(UART0, &c)) {
-      // friendly reminder that you are polling and therefore spinning...
-      // not good for the planet! But until we introduce interrupts,
-      // there is nothing you can do about it... except comment out
-      // this annoying code ;-)
-//      count++;
-//      if (count > 10000000) {
-//        uart_send_string(UART0, "\n\rZzzz....\n\r");
-//        count = 0;
-//      }
-    }
-
-    // print typed character on the keyboard via second serial line (telnet connection) 
-    uart_send(UART1, c);
+ 
+// clear screen
+  for(int i=0; i<50 ;i++)
+  {
+     uart_send(UART0, '\n');
   }
+
+// declare variable 'rev' for storing the value received from UART0
+  uint8_t rev;
+  for (;;) {
+    while (0 == uart_receive(UART0, &rev)) {
+      if(rev == 13) // ENTER key pressed
+      {
+	 uart_send(UART0, '\r');
+	 uart_send(UART0, '\n');
+	 } else {
+	 // print the character onto screen via UART0
+	 uart_send(UART0, rev);
+	 }
+	 // reset rev to 0 before starting the new loop
+	 rev = 0;
+      }
+   }
 }
