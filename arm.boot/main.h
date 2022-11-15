@@ -15,5 +15,6 @@
  * Board constantes such as BARs
  */
 #include "board.h"
+#include "vic.h"
 
 #endif /* MAIN_H_ */

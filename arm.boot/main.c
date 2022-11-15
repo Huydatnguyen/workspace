@@ -10,12 +10,6 @@ void _start() {
   int count = 0;
   uart_send_string(UART0, "\nQuit with \"C-a c\" and then type in \"quit\".\n");
   uart_send_string(UART0, "\nHello world!\n");
- 
-// clear screen
-  for(int i=0; i<50 ;i++)
-  {
-     uart_send(UART0, '\n');
-  }
 
 // declare variable 'rev' for storing the value received from UART0
   uint8_t rev;
@@ -32,5 +26,6 @@ void _start() {
 	 // reset rev to 0 before starting the new loop
 	 rev = 0;
       }
+    wfi();
    }
 }
