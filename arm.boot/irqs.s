@@ -32,7 +32,7 @@ _irqs_setup:
     orr r1, r1, #CPSR_IRQ_MODE  /* 0x12 */
     msr cpsr, r1
     /* set the pre-allocated IRQ stack */
-    ldr sp, =stack_top
+    ldr sp, =irq_stack_top
     /* go back to the mode the processor was in
      * when this function was called, normally,
      * it should be the Supervisor mode */
