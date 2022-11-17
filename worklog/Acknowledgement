@@ -19,4 +19,12 @@ Week 1-Part 3: Completed work:
 	Type 2: installed inside a server, which has an installed OS. It runs like a computer software. (Example: VirtualBox, QEMU) 
 2. Container with hypevisor: Containers share the machine's OS kernel, therefore do not require an OS per application, higher efficiencies and reducing costs. 
 
+Week2: Completed work:
+1. Add the using of the interrupt call that halts the core and waits for interrupts, by modifying some compiler rules and add the interrupt request stack section in the linker script. 
+2. Define the interrupt request stack section (4kB) after the stack but I am not sure it is exactly true? 
+
+
+
+
+
 
